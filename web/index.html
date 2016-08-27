@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Trabalho Auditoria </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="materialize/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link rel="icon" href="img/shourt.png" type="image/gif" sizes="16x16">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    </head>
+    <body>
+
+
+        <!--cabecalho-->
+        <div class="row">
+            <nav>
+                <div class="nav-wrapper grey lighten-3">
+                    &nbsp;&nbsp;<img src="img/lm.png" style="width: 80px;height: 80px;">
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+                        <li><span style="color: black">Craitson</span></li>
+                        <li><span style="color: black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+                        <li><a href="collapsible.html"><span style="color: black">Sair</span></a></li>
+                        <li><span style="color: black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+                    </ul>
+
+                </div>
+            </nav>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col s3">
+
+                <div ng-app = "mainApp">
+                    <ul class="collapsible" data-collapsible="accordion">
+                        <li>
+                            <a href="#viewClientes"><div class="collapsible-header"><i class="fa fa-child"></i>Clientes</div></a>
+
+                        </li>
+                        <li>
+                            <a href="#viewCidades"><div class="collapsible-header"><i class="material-icons">place</i>Cidades</div></a>
+                        </li>
+                        <li>
+                            <a href="#viewProdutos"><div class="collapsible-header"><i class="fa fa-gift"></i>Produtos</div></a>
+                        </li>
+                        <li>
+                            <a href="#viewVendas"><div class="collapsible-header"><i class="fa fa-shopping-basket"></i>Vendas</div></a>
+                        </li>
+                        <li>
+                            <a href="#viewUsuarios"><div class="collapsible-header"><i class="fa fa-users"></i>Usuarios</div></a>
+                        </li>
+                    </ul>
+                </div>
+                <div ng-view></div>
+            </div>
+        </div>
+
+
+        <div class="col s9">
+
+
+        </div>
+
+
+
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="materialize/js/materialize.min.js"></script>
+
+
+        <script>
+                    var mainApp = angular.module("mainApp", ['ngRoute']);
+                    mainApp.config(['$routeProvider', function ($routeProvider) {
+                            $routeProvider.
+                                    when('/viewClientes', {
+                                        templateUrl: 'viewClientes.html',
+                                        controller: '/servletViewCliente'
+                                    }).
+                                    when('/viewStudents', {
+                                        templateUrl: 'viewStudents.htm',
+                                        controller: 'ViewStudentsController'
+                                    }).
+                                    otherwise({
+                                        redirectTo: '/addStudent'
+                                    });
+                        }]);
+
+                    mainApp.controller('AddStudentController', function ($scope) {
+                        $scope.message = "This page will be used to display add student form";
+                    });
+
+                    mainApp.controller('ViewStudentsController', function ($scope) {
+                        $scope.message = "This page will be used to display all the students";
+                    });
+
+        </script>
+
+
+
+        <script>
+                    $('.datepicker').pickadate({
+                        selectMonths: true, // Creates a dropdown to control month
+                        selectYears: 15 // Creates a dropdown of 15 years to control year
+                    });
+
+        </script>
+
+    </body>
+</html>
