@@ -4,7 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html ng-app="teste">
+<html ng-app="trab_auditoria">
     <head>
         <title>Trabalho Auditoria </title>
         <meta charset="UTF-8">
@@ -65,16 +65,20 @@ and open the template in the editor.
                     </ul>
                 </div>
             </div>
+            <div class="col s8" ng-view="conteudo">
+
+
+            </div>
+
         </div>
 
 
-        <div class="col s9" ng-view="conteudo">
 
-
-        </div>
 
         <script type="text/javascript" src="js/angularjs/1.4.7/angular-route.min.js"></script>
         <script src="js/main.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 
+        
     </body>
 </html>

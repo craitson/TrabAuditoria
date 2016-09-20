@@ -5,7 +5,6 @@
  */
 package Servlet;
 
-import com.sun.org.apache.xalan.internal.xsltc.compiler.Template;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,28 +17,29 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Craitson
  */
-@WebServlet(name = "servletViewCliente", urlPatterns = {"/servletViewCliente"})
-public class servletViewCliente extends HttpServlet {
+@WebServlet(name = "cadUser", urlPatterns = {"/cadUser"})
+public class cadUser extends HttpServlet {
 
-  
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+       
+    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        System.out.println("get skadkfajdkfjh");
+        
+        
+        
         
         
     }
 
-  
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        System.out.println("post fsdkjfasdjkl");
+        processRequest(request, response);
     }
-
-   
-
 }

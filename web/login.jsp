@@ -1,3 +1,10 @@
+<%-- 
+    Document   : login.jsp
+    Created on : 17/09/2016, 17:37:35
+    Author     : Craitson
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -54,7 +61,7 @@ and open the template in the editor.
                 <div class="container">
                     <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
 
-                        <form class="col s12" method="post">
+                        <form method="post" action="auth">
                             <div class='row'>
                                 <div class='col s12'>
                                 </div>
@@ -62,7 +69,7 @@ and open the template in the editor.
 
                             <div class='row'>
                                 <div class='input-field col s12'>
-                                    <input class='validate' type='email' name='email' id='email' />
+                                    <input class='validate' type='text' name='user' id='user' autofocus="" />
                                     <label for='email'>Usuario</label>
                                 </div>
                             </div>
@@ -76,7 +83,13 @@ and open the template in the editor.
                                     <a class='pink-text' href='#!'><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></a>
                                 </label>
                             </div>
-
+                            
+                            <%                            
+                            if (request.getAttribute("erro")!= null){
+                                out.println("<b style=\"color: #CC3333;\">Usuário/Senha Inválidos</b>");
+                            }                            
+                            %>
+                            <br />
                             <br />
                             <center>
                                 <div class='row'>
