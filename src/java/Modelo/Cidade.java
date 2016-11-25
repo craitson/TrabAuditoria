@@ -4,23 +4,32 @@
  * and open the template in the editor.
  */
 package Modelo;
-
 /**
  *
  * @author Craitson
  */
-public class Cidade {
 
+public class Cidade {
+    
     private int cep;
+    
     private String nome;
+    
     private String estado;
 
+    
+    
+    
     public Cidade(int cep, String nome, String estado) {
         this.cep = cep;
         this.nome = nome;
         this.estado = estado;
     }
 
+    
+    public Cidade() {
+    }
+    
     public int getCep() {
         return cep;
     }
@@ -44,5 +53,4 @@ public class Cidade {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-
 }

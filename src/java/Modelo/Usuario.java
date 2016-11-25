@@ -17,19 +17,66 @@ public class Usuario {
     private String login;
     private String email;
     private boolean ativo;
+    private String senha;
 
-    public Usuario(int codigo, String nome, String email) {
-        this.codigo = codigo;
-        this.nome = nome;
-        this.email = email;
+    public Usuario() {
     }
+
     
-    public Usuario(String nome, String login, String email, boolean ativo, int tipo) {
+    
+    public Usuario(int codigo, int tipo, String nome, boolean ativo) {
+        this.codigo = codigo;
+        this.tipo = tipo;
+        this.nome = nome;
+        this.ativo = ativo;
+    }
+
+    public Usuario(int codigo, int tipo, String nome, String login, String email, boolean ativo) {
+        this.codigo = codigo;
         this.tipo = tipo;
         this.nome = nome;
         this.login = login;
         this.email = email;
         this.ativo = ativo;
+    }
+    public Usuario(int codigo, int tipo, String nome, String login, String email, boolean ativo, String senha) {
+        this.codigo = codigo;
+        this.tipo = tipo;
+        this.senha = senha;
+        this.nome = nome;
+        this.login = login;
+        this.email = email;
+        this.ativo = ativo;
+    }
+    
+    public Usuario(int codigo, String nome, String email) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.email = email;
+    }
+    public Usuario(int codigo, String nome, String email, int tipo) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.email = email;
+        this.tipo = tipo;
+    }
+    
+    public Usuario(String nome, String login, String email, boolean ativo, int tipo, String senha) {
+        this.tipo = tipo;
+        this.nome = nome;
+        this.login = login;
+        this.email = email;
+        this.ativo = ativo;
+        this.senha = senha;
+    }
+    public Usuario(String nome, String login, String email, boolean ativo, int tipo, String senha, int codigo) {
+        this.codigo = codigo;
+        this.tipo = tipo;
+        this.nome = nome;
+        this.login = login;
+        this.email = email;
+        this.ativo = ativo;
+        this.senha = senha;
     }
     
     public int getCodigo() {
@@ -79,7 +126,12 @@ public class Usuario {
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
     }
-    
-    
-    
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 }

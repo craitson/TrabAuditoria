@@ -1,0 +1,76 @@
+<div class="row">
+    <h5>Consultar Vendas</h5>
+</div>
+<table class="highlight centered">
+    <thead>
+        <tr style="background: #eeeeee">
+            <th data-field="id">#</th>
+            <th data-field="name">CLIENTE</th>
+            <th data-field="price">QUANTIDADE</th>
+            <th data-field="price">VALOR</th>
+            <th data-field="price">OPÇÕES</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr ng-repeat="venda in listaVenda">
+            <td>{{venda.codigo}}</td>
+            <td>{{venda.cliente.nome}}</td>
+            <td>{{venda.quantidade}}</td>
+            <td>{{venda.valor_pago}}</td>
+
+            <td>
+                <a class="btn-floating yellow darken-1" title="Editar" ng-click="ShowModalAlterVenda(venda)"><i class="material-icons">mode_edit</i></a>
+                <a class="btn-floating red" title="Excluir" ng-click="excluirVenda(venda)"><i class="material-icons">delete</i></a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<div id="modal_alteraVenda" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h5>Alterar Venda</h5>
+        <div class="divider"></div>
+
+        <div class="row">
+
+            <br>
+            <br>
+            <br>
+            <form id="cadProd">
+                <div class="input-field col s6">
+                    <select class="browser-default" style="background: #f5f5f5; border-bottom: solid 0.2px" id="produto">
+                        <option ng-repeat="x in listaProdutos" value="{{x}}">{{x.descricao}}</option>
+                    </select>
+                </div>
+                <div class="input-field col s6">
+                    <select class="browser-default" style="background: #f5f5f5; border-bottom: solid 0.2px" id="cliente">
+                        <option ng-repeat="x in listaClientes" value="{{x}}">{{x.nome}}</option>
+                    </select>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">dashboard</i>
+                    <input type="number" class="validate" id="qtd" ng-model="venda.quantidade" ng-change="atuPreco(venda)">
+                    <label class="active" for="icon_prefix">Quantidade</label>
+                </div>
+                <div class="input-field col s6">
+                    <label class="active" for="icon_prefix">Valor</label>
+                    <br>
+                    <b><span ng-bind-html="total">
+
+                        </span></b>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-action modal-close grey lighten-5 btn " style="color: black">CANCELAR</a>
+        <a class=" waves-effect waves-light btn altera" ng-click="AlterVenda(venda)">ALTERAR</a>
+
+    </div>
+</div>

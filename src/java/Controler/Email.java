@@ -21,12 +21,13 @@ import javax.mail.internet.MimeMessage;
  */
 public class Email {
 
-    //public void enviaEmial(String nome){
-    public void enviaEmail(String nome) {
+    public static void enviaEmail(String login) {
+
         Properties props = new Properties();
         /**
          * Parâmetros de conexão com servidor Gmail
          */
+
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.socketFactory.port", "465");
         props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
@@ -43,18 +44,21 @@ public class Email {
         /**
          * Ativa Debug para sessão
          */
-        //session.setDebug(true);
+        session.setDebug(true);
+
         try {
 
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("trabalhosemauditoria@gmail.com")); //Remetente
 
-            Address[] toUser = InternetAddress //Destinatário(s)
+            Address[] toUser = InternetAddress //Destinatário
                     .parse("craitson@gmail.com");
 
             message.setRecipients(Message.RecipientType.TO, toUser);
-            message.setSubject("Usuario " + nome + "  Bloqueado");//Assunto
-            message.setText("Usuario " + nome + " bloqueado por 3 tentativas de acesso ao sistema com senha incorreta!");
+            //Assunto
+            message.setSubject("Usuário tentando Logar");
+            //Corpo
+            message.setText("O usuário '" + login + "' tentou fazer login mais de 3 vezes sem sucesso e foi desativado.");
             /**
              * Método para enviar a mensagem criada
              */

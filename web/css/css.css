@@ -1,0 +1,7 @@
+@font-face {
+    font-family: OpenSansB;
+    src: url(../fonts/OpenSans-Regular.ttf);
+}
+body{
+    font-family: OpenSansB;
+}

@@ -1,0 +1,67 @@
+<div class="row">
+    <h5>Consultar Produtos</h5>
+</div>
+<table class="highlight centered">
+    <thead>
+        <tr style="background: #eeeeee">
+            <th data-field="id">#</th>
+            <th data-field="name">DESCRIÇÃO</th>
+            <th data-field="price">PREÇO</th>
+            <th data-field="price">ESTOQUE</th>
+            <th data-field="price">OPÇÕES</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr ng-repeat="produto in listaProdutos">
+            <td>{{produto.codigo}}</td>
+            <td>{{produto.descricao}}</td>
+            <td>{{produto.preco}}</td>
+            <td>{{produto.estoque}}</td>
+            <td>
+                <a class="btn-floating yellow darken-1" ng-click="ShowModalAlterProd(produto)" title="Editar"><i class="material-icons">mode_edit</i></a>
+                <a class="btn-floating red" title="Excluir" ng-click="excluirProd(produto.codigo)"><i class="material-icons">delete</i></a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<div id="modal_alteraProd" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h5>Alterar Produto</h5>
+        <div class="divider"></div>
+
+        <div class="row">
+
+            <br>
+            <br>
+            <br>
+
+            <form id="cadProd">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">sort_by_alpha</i>
+                    <input id="icon_prefix" type="text" class="validate" ng-model="produto.descricao">
+                    <label class="active" for="icon_prefix">Descrição</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">info_outline</i>
+                    <input id="icon_prefix" type="text" class="validate" ng-model="produto.preco">
+                    <label class="active" for="icon_prefix">Preço</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">dashboard</i>
+                    <input id="icon_prefix" type="text" class="validate" ng-model="produto.estoque">
+                    <label class="active" for="icon_prefix">Estoque</label>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-action modal-close grey lighten-5 btn" style="color: black">CANCELAR</a>
+        <a class=" waves-effect waves-light btn" ng-click="alterProduto(produto)">ALTERAR</a>
+
+    </div>
+</div>

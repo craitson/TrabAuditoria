@@ -1,0 +1,91 @@
+<div class="row">
+    <h5>Consultar Usuarios</h5>
+</div>
+<table class="highlight centered">
+    <thead>
+        <tr style="background: #eeeeee">
+            <th data-field="id">#</th>
+            <th data-field="name">NOME</th>
+            <th data-field="price">TIPO</th>
+            <th data-field="price">ATIVO</th>
+            <th data-field="price">OPÇÕES</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr ng-repeat="user in listaUsuarios">
+            <td>{{user.codigo}}</td>
+            <td>{{user.nome}}</td>
+            <td ng-if="user.tipo == 0"><a class="btn-floating purple darken-1" title="Administrador"><i class="material-icons">supervisor_account</i></a></td>
+            <td ng-if="user.tipo == 1"><a class="btn-floating pink darken-1" title="Normal"><i class="material-icons">perm_identity</i></a></td>
+            <td ng-if="user.ativo == true"><a class="btn-floating green darken-1" title="Ativo"><i class="material-icons">thumb_up</i></a></td>
+            <td ng-if="user.ativo == false"><a class="btn-floating red darken-1" title="Desativado"><i class="material-icons">thumb_down</i></a></td>
+
+            <td>
+                <a class="btn-floating yellow darken-1" title="Editar" ng-click="ShowModalAlterUsuario(user)"><i class="material-icons">mode_edit</i></a>
+                <a class="btn-floating red" title="Excluir" ng-click="excluirUser(user)"><i class="material-icons">delete</i></a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<div id="modal_alteraUser" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h5>Alterar Usuario</h5>
+        <div class="divider"></div>
+
+
+        <div class="row">
+            <form id="cadUser">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="icon_prefix" type="text" class="active" ng-model="usuario.nome">
+                    <label  class="active" for="icon_prefix">Nome</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">perm_identity</i>
+                    <input id="icon_prefix" type="text" class="active" ng-model="usuario.login">
+                    <label class="active" for="icon_prefix">Login</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">email</i>
+                    <input id="icon_prefix" type="email"  ng-model="usuario.email">
+                    <label class="active" for="icon_prefix">E-mail</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">vpn_key</i>
+                    <input  class="active"  id="icon_prefix" type="text" ng-model="usuario.senha">
+                    <label class="active" for="icon_prefix">Senha</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">supervisor_account</i>
+                    <select id="tipo">
+                        <option value="1">Usuario</option>
+                        <option value="0">Administrador</option>
+                    </select>
+                    <label>Tipo</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">invert_colors</i>
+                    <select id="ativo">
+                        <option value="TRUE">Sim</option>
+                        <option value="FALSE">Não</option>
+                    </select>
+                    <label>Ativo?</label>
+                </div>
+            </form>
+        </div>
+
+</div>
+<div class="modal-footer">
+    <a class="modal-action modal-close grey lighten-5 btn" style="color: black">CANCELAR</a>
+    <a class=" waves-effect waves-light btn" ng-click="alterUsuario(usuario)">ALTERAR</a>
+
+</div>
+</div>
+
+<script>
+            $(document).ready(function () {
+                $('select').material_select();
+            });</script>

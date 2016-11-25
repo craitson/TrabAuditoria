@@ -4,20 +4,20 @@
     </div>
 
     <div class="row">
-        <form>
+        <form id="cadCidade">
             <div class="input-field col s6">
                 <i class="material-icons prefix">location_on</i>
-                <input id="icon_prefix" type="text" class="validate" ng-model="cidade.cep" ng-required="required">
+                <input id="icon_prefix" type="number" class="validate" ng-model="cidade.cep" ng-required="required" required="">
                 <label for="icon_prefix">CEP</label>
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">sort_by_alpha</i>
-                <input id="icon_prefix" type="text" class="validate" ng-model="cidade.nome" ng-required="required">
-                <label for="icon_prefix">Nome</label>
+                <input id="icon_prefix" type="text" class="validate" ng-model="cidade.nome" ng-required="required" required="">
+                <label for="icon_prefix">Nome</label> 
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">navigation</i>
-                <select ng-model="cidade.estado" required="">
+                <select id="estado" ng-model="cidade.estado" required="">
                     <option value="" disabled selected>Selecione</option>
                     <option value="AC">Acre	</option>
                     <option value="AL">Alagoas</option>
@@ -62,14 +62,10 @@
             <div class="progress">
                 <div class="indeterminate"></div>
             </div>
-
         </div>
-    </div>
-    
+    </div>    
     <br>
 </div>
-
-
 
 
 <script>

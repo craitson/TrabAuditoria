@@ -21,8 +21,13 @@ public class Cliente {
     private boolean ativo;
     private float saldoDevedor;
     private String cep;
+    private Cidade cidade;
 
-    public Cliente(String nome, String endereco, String sexo, String nascimento, boolean ativo, float saldoDevedor, String cep) {
+    public Cliente() {
+    }
+
+    public Cliente(int codigo, String nome, String endereco, String sexo, String nascimento, boolean ativo, float saldoDevedor, String cep) {
+        this.codigo = codigo;
         this.nome = nome;
         this.endereco = endereco;
         this.sexo = sexo;
@@ -32,10 +37,28 @@ public class Cliente {
         this.cep = cep;
     }
     
-    public int getCodigo() {
-        return codigo;
+    public Cliente(String nome, String endereco, String sexo, String nascimento, boolean ativo, float saldoDevedo) {
+        this.nome = nome;
+        this.endereco = endereco;
+        this.sexo = sexo;
+        this.nascimento = nascimento;
+        this.ativo = ativo;
+        this.saldoDevedor = saldoDevedor;
+        this.cep = cep;
     }
 
+    public Cidade getCidade() {
+        if (cidade == null){
+            cidade = new Cidade();
+        }
+        return cidade;
+    }
+
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
+    }
+
+    
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
@@ -94,5 +117,13 @@ public class Cliente {
 
     public void setCep(String cep) {
         this.cep = cep;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public boolean isAtivo() {
+        return ativo;
     }
 }

@@ -86,7 +86,7 @@ and open the template in the editor.
                             
                             <%                            
                             if (request.getAttribute("erro")!= null){
-                                out.println("<b style=\"color: #CC3333;\">Usuário/Senha Inválidos</b>");
+                                out.println("<b style=\"color: #CC3333;\">"+request.getAttribute("erro")+" </b>");
                             }                            
                             %>
                             <br />

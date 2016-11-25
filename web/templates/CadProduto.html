@@ -4,28 +4,36 @@
     </div>
 
     <div class="row">
-
-        <div class="input-field col s6">
-            <i class="material-icons prefix">sort_by_alpha</i>
-            <input id="icon_prefix" type="text" class="validate">
-            <label for="icon_prefix">Descrição</label>
-        </div>
-        <div class="input-field col s6">
-            <i class="material-icons prefix">info_outline</i>
-            <input id="icon_prefix" type="text" class="validate">
-            <label for="icon_prefix">Preço</label>
-        </div>
-        <div class="input-field col s6">
-            <i class="material-icons prefix">dashboard</i>
-            <input id="icon_prefix" type="text" class="validate">
-            <label for="icon_prefix">Estoque</label>
-        </div>
+        <form id="cadProd">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">sort_by_alpha</i>
+                <input id="icon_prefix" type="text" class="validate" ng-model="produto.descricao">
+                <label for="icon_prefix">Descrição</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">info_outline</i>
+                <input id="icon_prefix" type="text" class="validate" ng-model="produto.preco">
+                <label for="icon_prefix">Preço</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">dashboard</i>
+                <input id="icon_prefix" type="text" class="validate" ng-model="produto.estoque">
+                <label for="icon_prefix">Estoque</label>
+            </div>
+        </form>
     </div>
     <div class="row">
         &nbsp;        &nbsp;
-        <button class="btn waves-effect waves-light" type="submit" name="action">Cadastrar
-            <i class="material-icons right">send</i>
-        </button>
+        <div class="col s3">
+            <button class="btn waves-effect waves-light" type="submit" name="action" ng-click="salvarProduto(produto)">Cadastrar
+                <i class="material-icons right">send</i>
+            </button>
+        </div>
+        <div id="progresso" class="col s8 hide">
+            <div class="progress">
+                <div class="indeterminate"></div>
+            </div>
+        </div>
     </div>
     <br>
 </div>
